@@ -1,3 +1,45 @@
+const registroSesion = document.querySelector("#intro");
+const astronauta = document.querySelector("#intro input");
+const inicioSession = document.querySelector("#intro form");
+const nombreSesion = document.querySelector(".datos-perfil span")
+
+inicioSession.addEventListener("submit", function(event){
+    event.preventDefault();
+    const nombreAstronauta = astronauta.value;
+    sessionStorage.setItem('Astronauta', nombreAstronauta);
+    const nombreRegistrado = sessionStorage.getItem('Astronauta');
+    nombreSesion.innerHTML = nombreRegistrado;
+    registroSesion.style.display = "none";
+});
+
+const nombreGuardado = sessionStorage.getItem("Astronauta");
+
+if (nombreGuardado){
+    nombreSesion.innerHTML = nombreGuardado;
+    registroSesion.style.display = "none";
+}
+
+const verSesion = document.querySelector("#perfil");
+
+verSesion.addEventListener("click", function(){
+    const modalSesion = document.querySelector(".modalSesion");
+    modalSesion.innerHTML = `<div class="modal">
+                            <img src="./assets/avatar.webp" alt="imagen astronauta">
+                            <div class="datos-perfil">
+                            <h2>Nombre Astronauta: <span>${nombreGuardado}</span></h2>
+                            <ul>
+                                <li>Total Misiones: 0 de momento porque no guardamos el historial son sessionStorage</li>
+                                <li>Kilometros recorridos: 0 de momento porque no guardamos el historial son sessionStorage</li>
+                                <li>Tiempo de viaje: 0 de momento porque no guardamos el historial son sessionStorage</li>
+                            </ul>
+                            <a><p>cerrar sesion</p></a>
+                            </div>
+                            </div>`;
+    modalSesion.style.display = "flex";
+});
+
+
+
 const viajesEspaciales = [
     { destino: "Luna", url: "./assets/luna.webp", distancia: 384400, velocidad: 40000, categoria: "Satelite", mensaje: "No saltes tanto, porque en la Luna pesas 6 veces menos que en la Tierra." },
     { destino: "Marte", url: "./assets/marte.webp", distancia: 225000000, velocidad: 60000, categoria: "Planeta", mensaje: "¿Sabías que en Marte un día dura casi lo mismo que en la Tierra? Exactamente 24 horas y 39 minutos." },
