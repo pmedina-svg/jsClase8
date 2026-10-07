@@ -1,0 +1,452 @@
+/*FONT*/
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Space+Grotesk:wght@300..700&display=swap');
+
+/*Reset CSS*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*body*/
+html{
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #010e19;
+    color: #fff;
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.contenedor {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+h1, h2, h3{
+    font-family: "Space Grotesk", sans-serif;
+}
+
+/*Header*/
+
+header {
+    margin: 10px 0 20px;
+}
+
+header .contenedor {
+    display: flex;
+    align-items: center;
+    border: 1px solid #224159;
+    border-radius: 10px;
+}
+
+h1 span {
+    text-indent: -9999px;
+    position: absolute;
+}
+
+h1 {
+    position: relative;
+    max-width: 150px;
+    height: 42px;
+    display: block;
+    margin: 0 20px 0 0;
+}
+
+h2{
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+/*Main*/
+
+main .contenedor {
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    justify-content: space-evenly;
+}
+
+.wrap {
+    max-width: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+aside{
+    max-width: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+main section {
+    border: 1px solid #224159;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+main h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #224159;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+main h3:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #009efc;
+    bottom: 0;
+}
+
+/* Sección Categoría */
+
+#listaCategorias {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+#listaCategorias button {
+    background: #091a29;
+    border: 1px solid #224159;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px;
+    max-width: 25%;
+    width: 100%;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#listaCategorias button.activo {
+    background: #003474;
+    border: 1px solid #0383dd;
+}
+
+#listaCategorias button:hover {
+    background: #003474;
+    border: 1px solid #0383dd;
+}
+
+/* Secciones Destinos */
+
+#listaDestinos {
+      display: flex;       
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 10px;
+      padding: 10px;
+}
+
+#listaDestinos h3, #configuracion .col-destino h3 {
+    text-transform: capitalize;
+    border-bottom: none;
+    font-weight: bolder;
+    letter-spacing: 0;
+}
+
+#listaDestinos h3:after, #configuracion .col-destino h3:after{
+    display: none;
+}
+
+#destinos .card {
+    flex: 0 0 calc(25% - 8px);
+    text-align: center;
+    padding: 10px;
+    background: #091a29;
+    border: 1px solid #224159;
+    border-radius: 10px;
+}
+
+#destinos .card img {
+    max-width: 100px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+#destinos .card p {
+    font-size: 1.3rem;
+    line-height: 2.1rem;
+}
+
+#destinos button {
+    padding: 10px;
+    width: 100%;
+    background: #003474;
+    border: 1px solid #0383dd;
+    color: #ffffff;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Sección configuración */
+
+.configuracionDestino {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='14' ry='14' stroke='%23224159FF' stroke-width='2' stroke-dasharray='6%2c 6' stroke-dashoffset='56' stroke-linecap='butt'/%3e%3c/svg%3e");
+    border-radius: 14px;
+    margin: 10px 0;
+    padding: 20px;
+}
+
+.configuracionDestino h4 {
+    font-family: "Space Grotesk", sans-serif;
+    text-transform: capitalize;
+}
+
+.configuracionDestino p {
+    font-size: 1.2rem;
+    color: #899ec8;
+}
+
+.configuracionDestino .info-destino {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+    align-items: center;
+}
+
+.configuracionDestino .info-destino .col-destino img {
+    max-width: 100px;
+}
+
+.configuracionDestino .col-destino {
+    text-align: left;
+}
+
+.controlVelocidad {
+    padding: 10px 0;
+}
+
+.controlVelocidad p {
+    font-size: 1.3rem;
+    line-height: 2.1rem;
+    margin-bottom: 5px;
+}
+
+.controlVelocidad input {
+    background: #091a29;
+    border: 1px solid #224159;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+}
+
+/* Quita las flechas en Chrome, Safari, Edge y Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Quita las flechas en Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+.opcionesBotones {
+    margin: 10px 0;
+}
+
+.opcionesBotones button {
+    background: #283c51;
+    width: 100%;
+    color: #889fbd;
+    border: 0;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.opcionesBotones button:hover {
+    background: #0b335b;
+    color: #fff;
+}
+
+/* Misiones Lanzadas */
+
+ul.misionesLanzadas li {
+    list-style-type: none;
+}
+
+#misiones table{
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Google Sans", sans-serif;
+  text-align: left;
+  font-size: 1.2rem;
+  height: 155px;
+  overflow: auto;
+  display: block;
+}
+
+#misiones thead th, #misiones tbody tr td {
+  width: 10%;
+  padding: 12px 10px;
+  border-bottom: 1px solid #dddddd;
+}
+
+#misiones tbody tr td {
+    color: #899ec8;
+    font-size: 1.1rem;
+}
+
+#misiones table th:last-child, #misiones tbody tr td:last-child {
+  width: 70%;
+}
+
+
+/* Modal lanzamiento */
+
+.modalMision {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #010e199c;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.modal {
+    max-width: 320px;
+    padding: 20px;
+    background: #010e19;
+    border-radius: 10px;
+    border: 1px solid #224159;
+}
+
+.modal h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #224159;
+    padding-bottom: 10px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.modal ul li {
+    font-family: "Space Grotesk", sans-serif;
+    list-style-type: none;
+    padding: 2px 0;
+    font-size: 1.2rem;
+}
+
+.modal p {
+    margin: 10px 0;
+    padding: 10px 0;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    border-top: 1px solid #224159;
+    border-bottom: 1px solid #224159;
+}
+
+.modal button {
+    background: #003474;
+    border: 1px solid #224159;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 1280px) {
+    body {
+        padding: 20px;
+        height: auto;
+    }
+}
+
+@media (max-width: 980px) {
+    #destinos .card {
+        flex: 0 0 calc(50% - 8px);
+    }
+
+    .wrap, aside{
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 700px) {
+
+    header .contenedor {
+    flex-direction: column;
+}
+
+    .wrap, aside {
+        max-width: 100%;
+    }
+    main .contenedor {
+    flex-direction: column;
+}
+
+h1 {
+    max-width: 100px;
+    margin: 0;
+}
+
+.info {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+#listaCategorias button {
+    max-width: 50%;
+    flex: 0 0 calc(50% - 8px);
+}
+
+#listaCategorias {
+    flex-wrap: wrap;
+}
+
+.modalMision {
+    padding: 0 20px;
+}
+
+#listaDestinos {
+    padding: 10px 0;
+}
+}

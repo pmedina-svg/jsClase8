@@ -4,9 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="./js/main.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clase 8 JS</title>
 </head>
 <body>
     
+    <header>
+        <div class="contenedor">
+            <div id="logo">
+                <h1><img src="./assets/logo-nasa.webp" alt="logo de la nasa"> <span>Nasa</span></h1>
+            </div>
+            <div class="info">
+                <h2>Centro de control de misiones</h2>
+                <h3>simulador de viaje espacial</h3>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="contenedor">
+
+            <div class="wrap">
+                <section id="categorias">
+                    <h3>1. Selecciona una categoría</h3>
+                    <div id="listaCategorias"></div>
+                </section>
+                <section id="destinos">
+                    <h3>2. Destinos disponibles</h3>
+                    <div id="listaDestinos"></div>
+                </section>
+            </div>
+
+            <aside>
+                <section id="configuracion">
+                    <h3>3. Configura tu misión</h3>
+                    <div class="configuracionDestino">
+                        <svg width="32" height="32" viewBox="0 0 24 24">
+                            <g fill="#899ec8" fill-rule="evenodd" clip-rule="evenodd">
+                                <path
+                                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12m10-8a8 8 0 1 0 0 16a8 8 0 0 0 0-16" />
+                                <path
+                                    d="M13 7a1 1 0 1 0-2 0v4H7a1 1 0 1 0 0 2h4v4a1 1 0 1 0 2 0v-4h4a1 1 0 1 0 0-2h-4z" />
+                            </g>
+                        </svg>
+                        <h4>Destino no seleccionado</h4>
+                        <p>Selecciona un destino en la lista para configurar tu misión</p>
+                    </div>
+                    <div class="controlVelocidad"></div>
+                </section>
+                <section id="misiones">
+                    <h3>4. Misiones lanzadas</h3>
+                    <table>
+                        
+                        <thead>
+                            <tr>
+                                <th>Destino</th>
+                                <th>Velocidad</th>
+                                <th>Distancia</th>
+                                <th>Duración</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+
+                    </table>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <div class="modalMision">
+                        
+    </div>
+
 </body>
 </html>
