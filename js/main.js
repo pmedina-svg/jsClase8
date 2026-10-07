@@ -24,9 +24,10 @@ const verSesion = document.querySelector("#perfil");
 verSesion.addEventListener("click", function(){
     const modalSesion = document.querySelector(".modalSesion");
     modalSesion.innerHTML = `<div class="modal">
+                            <button>X</button>
                             <img src="./assets/avatar.webp" alt="imagen astronauta">
                             <div class="datos-perfil">
-                            <h2>Nombre Astronauta: <span>${nombreGuardado}</span></h2>
+                            <h2>Astronauta: <span>${nombreGuardado}</span></h2>
                             <ul>
                                 <li>Total Misiones: 0 de momento porque no guardamos el historial son sessionStorage</li>
                                 <li>Kilometros recorridos: 0 de momento porque no guardamos el historial son sessionStorage</li>
@@ -36,6 +37,12 @@ verSesion.addEventListener("click", function(){
                             </div>
                             </div>`;
     modalSesion.style.display = "flex";
+
+    const cerrarModal = modalSesion.querySelector("button");
+    cerrarModal.addEventListener("click", function(){
+        modalSesion.style.display = "none";
+    });
+    
 });
 
 
