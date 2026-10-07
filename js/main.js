@@ -114,6 +114,7 @@ function mostrarDestinos(destinos){
                                                 <td>${nuevaMision.velocidad}</td>
                                                 <td>${nuevaMision.distancia}</td>
                                                 <td>${nuevaMision.duracion}</td>
+                                                <td><button><img src="./assets/trash-can.png"></button></td>
                                                 </tr>` +contadorMisiones.innerHTML;
 
                 modalMision.innerHTML = `<div class="modal">

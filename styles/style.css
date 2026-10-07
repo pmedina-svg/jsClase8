@@ -78,6 +78,40 @@ h3 {
     font-weight: 400;
 }
 
+/* Perfil astronauta */
+.usuario {
+    display: flex;
+    max-width: 300px;
+    gap: 10px;
+    font-size: 2rem;
+    margin-left: auto;
+    background: #091a29;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #224159;
+}
+.usuario img {
+    max-width: 60px;
+}
+
+.datos-perfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.datos-perfil h2 {
+    font-size: 1rem;
+}
+
+.datos-perfil a {
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #ccc;
+    margin-top: 5px;
+    display: block;
+}
+
 /*Main*/
 
 main .contenedor {
@@ -323,8 +357,18 @@ ul.misionesLanzadas li {
     font-size: 1.1rem;
 }
 
-#misiones table th:last-child, #misiones tbody tr td:last-child {
+#misiones table th:nth-child(4), #misiones tbody tr:nth-child(4) {
   width: 70%;
+}
+
+#misiones tbody tr td button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#misiones table td img {
+    width: 15px;
 }
 
 
