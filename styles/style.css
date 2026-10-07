@@ -54,6 +54,10 @@ h1, h2, h3{
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .mensaje {
@@ -579,6 +583,10 @@ ul.misionesLanzadas li {
 
     header .contenedor {
     flex-direction: column;
+}
+
+.usuario {
+    margin: 20px auto 0;
 }
 
     .wrap, aside {

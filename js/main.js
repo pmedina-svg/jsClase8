@@ -27,7 +27,7 @@ verSesion.addEventListener("click", function(){
                             <button>X</button>
                             <img src="./assets/avatar.webp" alt="imagen astronauta">
                             <div class="datos-perfil">
-                            <h2>Astronauta: <span>${nombreGuardado}</span></h2>
+                            <h2>Astronauta: <span>${sessionStorage.getItem("Astronauta")}</span></h2>
                             <ul>
                                 <li>Total Misiones: 0 de momento porque no guardamos el historial son sessionStorage</li>
                                 <li>Kilometros recorridos: 0 de momento porque no guardamos el historial son sessionStorage</li>
@@ -41,6 +41,13 @@ verSesion.addEventListener("click", function(){
     const cerrarModal = modalSesion.querySelector("button");
     cerrarModal.addEventListener("click", function(){
         modalSesion.style.display = "none";
+    });
+
+    const cerrarSesion = modalSesion.querySelector("a");
+
+    cerrarSesion.addEventListener("click", function(){
+        sessionStorage.clear();
+        location.reload();
     });
     
 });
