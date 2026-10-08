@@ -96,9 +96,8 @@ const modalMision = document.querySelector(".modalMision");
 
 // en function mostrarMision presenté muchas dificultades: 1. al eliminar o me eliminaba el último desde cualquier button, o dejaban de funcionar los botones en todos los TR menos en el último. solución: crear id, pero, eso no fue suficiente, ya que para que al eliminar no borrara el ultimo tuve que no incluir en tr.mision-id dentro del innerHTML sino que por separado. 2. repetición de IDS: una vez logrado el eliminar por id ocurrio lo siguiente, teniendo id=1, 2, 3, 4, eliminaba ids 2 y 4, refrescaba, volvia a lanzar misiones y se me repetian id 3 (que ya existia porque no habia eliminado anteriormente). Solución: tras varios intentos investigué y encontré Date.now() que genera id unicos con fecha y hora (milisegundos).
 
-function mostrarMision(nuevaMision){
-    const {id, destino, velocidad, distancia, duracion} = nuevaMision;
-    
+function mostrarMision({id, destino, velocidad, distancia, duracion}){
+        
     const historialMisiones = document.createElement("tr");
     historialMisiones.className = `mision-${id}`;
     historialMisiones.innerHTML = `<td>${destino}</td>
