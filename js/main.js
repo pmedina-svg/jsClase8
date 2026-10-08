@@ -91,26 +91,30 @@ const controles = document.querySelector(".controlVelocidad");
 const contadorMisiones = document.querySelector("tbody");
 const modalMision = document.querySelector(".modalMision");
 
+
+// en function mostrarMision presenté muchas dificultades: 1. al eliminar o me eliminaba el último desde cualquier button, o dejaban de funcionar los botones en todos los TR menos en el último. solución: crear id, pero, eso no fue suficiente, ya que para que al eliminar no borrara el ultimo tuve que no incluir en tr.mision-id dentro del innerHTML sino que por separado. 2. repetición de IDS: una vez logrado el eliminar por id ocurrio lo siguiente, teniendo id=1, 2, 3, 4, eliminaba ids 2 y 4, refrescaba, volvia a lanzar misiones y se me repetian id 3 (que ya existia porque no habia eliminado anteriormente). Solución: tras varios intentos investigué y encontré Date.now() que genera id unicos con fecha y hora (milisegundos).
+
 function mostrarMision(nuevaMision){
-    contadorMisiones.innerHTML += `<tr>
-                                    <td>${nuevaMision.destino}</td>
-                                    <td>${nuevaMision.velocidad}</td>
-                                    <td>${nuevaMision.distancia}</td>
-                                    <td>${nuevaMision.duracion}</td>
-                                    <td><button><img src="./assets/trash-can.png"></button></td>
-                                    </tr>`;
-
-    const botonEliminar = contadorMisiones.querySelectorAll("button");
-
+    const {id, destino, velocidad, distancia, duracion} = nuevaMision;
     
-    botonEliminar.forEach(boton => {
-        boton.addEventListener("click", function(){
-            misionesLanzadas = misionesLanzadas.filter(mision => mision !== nuevaMision);
-            localStorage.setItem("misiones", JSON.stringify(misionesLanzadas));
-            boton.parentElement.parentElement.remove();
-        });
+    const historialMisiones = document.createElement("tr");
+    historialMisiones.className = `mision-${id}`;
+    historialMisiones.innerHTML = `<td>${destino}</td>
+                                   <td>${velocidad}</td>
+                                   <td>${distancia}</td>
+                                   <td>${duracion}</td>
+                                   <td><button class="btn-eliminar"><img src="./assets/trash-can.png"></button></td>`;
+    
+    contadorMisiones.appendChild(historialMisiones);
+    
+    const botonEliminar = historialMisiones.querySelector(".btn-eliminar");
+    
+    botonEliminar.addEventListener("click", function(){
+        misionesLanzadas = misionesLanzadas.filter(mision => mision.id !== id);
+        localStorage.setItem("misiones", JSON.stringify(misionesLanzadas));
+        
+        historialMisiones.remove(); 
     });
-
 }
 
 misionesLanzadas.forEach(nuevaMision => {
@@ -184,6 +188,7 @@ function mostrarDestinos(destinos){
             botonLanzar.addEventListener("click", function(){               
 
                 const nuevaMision = {
+                    id: Date.now(),
                     destino: viaje.destino,
                     velocidad: viaje.velocidad,
                     distancia: viaje.distancia,
