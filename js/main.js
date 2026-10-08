@@ -6,13 +6,13 @@ const nombreSesion = document.querySelector(".datos-perfil span")
 inicioSession.addEventListener("submit", function(event){
     event.preventDefault();
     const nombreAstronauta = astronauta.value;
-    sessionStorage.setItem('Astronauta', nombreAstronauta);
-    const nombreRegistrado = sessionStorage.getItem('Astronauta');
+    localStorage.setItem('Astronauta', nombreAstronauta);
+    const nombreRegistrado = localStorage.getItem('Astronauta');
     nombreSesion.innerHTML = nombreRegistrado;
     registroSesion.style.display = "none";
 });
 
-const nombreGuardado = sessionStorage.getItem("Astronauta");
+const nombreGuardado = localStorage.getItem("Astronauta");
 
 if (nombreGuardado){
     nombreSesion.innerHTML = nombreGuardado;
@@ -22,16 +22,18 @@ if (nombreGuardado){
 const verSesion = document.querySelector("#perfil");
 
 verSesion.addEventListener("click", function(){
+    const totalKm = misionesLanzadas.reduce((total, mision) => total + mision.distancia, 0);
+    const totalTiempo = misionesLanzadas.reduce((total, mision) => total + mision.distancia/ mision.velocidad, 0);
     const modalSesion = document.querySelector(".modalSesion");
     modalSesion.innerHTML = `<div class="modal">
                             <button>X</button>
                             <img src="./assets/avatar.webp" alt="imagen astronauta">
                             <div class="datos-perfil">
-                            <h2>Astronauta: <span>${sessionStorage.getItem("Astronauta")}</span></h2>
+                            <h2>Astronauta: <span>${localStorage.getItem("Astronauta")}</span></h2>
                             <ul>
-                                <li>Total Misiones: 0 de momento porque no guardamos el historial son sessionStorage</li>
-                                <li>Kilometros recorridos: 0 de momento porque no guardamos el historial son sessionStorage</li>
-                                <li>Tiempo de viaje: 0 de momento porque no guardamos el historial son sessionStorage</li>
+                                <li>Total Misiones: ${misionesLanzadas.length > 0 ? misionesLanzadas.length : 0}</li>
+                                <li>Kilometros recorridos: ${totalKm > 0 ? totalKm : 0} km</li>
+                                <li>Tiempo de viaje: ${totalTiempo > 0 ? convertirDuracion(totalTiempo) : 0}</li>
                             </ul>
                             <a><p>cerrar sesion</p></a>
                             </div>
@@ -46,7 +48,7 @@ verSesion.addEventListener("click", function(){
     const cerrarSesion = modalSesion.querySelector("a");
 
     cerrarSesion.addEventListener("click", function(){
-        sessionStorage.clear();
+        localStorage.clear();
         location.reload();
     });
     
