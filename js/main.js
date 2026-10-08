@@ -69,7 +69,8 @@ const viajesEspaciales = [
     { destino: "Eris", url: "./assets/eris.webp", distancia: 10100000000, velocidad: 100000, categoria: "Planeta Enano", mensaje: "Eris está tan lejos del Sol que su temperatura puede bajar hasta unos -230 °C. Espero que hayas llevado un buen abrigo." },
 ];
 
-const misionesLanzadas = [];
+// const misionesLanzadas = [];
+let misionesLanzadas = JSON.parse(localStorage.getItem("misiones")) || [];
 
 
 // // funcion para convertir el calculo de horas a años - dias - horas
@@ -90,6 +91,32 @@ const controles = document.querySelector(".controlVelocidad");
 const contadorMisiones = document.querySelector("tbody");
 const modalMision = document.querySelector(".modalMision");
 
+function mostrarMision(nuevaMision){
+    contadorMisiones.innerHTML += `<tr>
+                                    <td>${nuevaMision.destino}</td>
+                                    <td>${nuevaMision.velocidad}</td>
+                                    <td>${nuevaMision.distancia}</td>
+                                    <td>${nuevaMision.duracion}</td>
+                                    <td><button><img src="./assets/trash-can.png"></button></td>
+                                    </tr>`;
+
+    const botonEliminar = contadorMisiones.querySelectorAll("button");
+
+    
+    botonEliminar.forEach(boton => {
+        boton.addEventListener("click", function(){
+            misionesLanzadas = misionesLanzadas.filter(mision => mision !== nuevaMision);
+            localStorage.setItem("misiones", JSON.stringify(misionesLanzadas));
+            boton.parentElement.parentElement.remove();
+        });
+    });
+
+}
+
+misionesLanzadas.forEach(nuevaMision => {
+    mostrarMision(nuevaMision);
+});
+
 contenedorCategorias.innerHTML= `<button class="activo">Planeta</button>
                                 <button>Planeta Enano</button>
                                 <button>Satelite</button>
@@ -102,7 +129,7 @@ botonesCategorias.forEach(boton =>{
 
         botonesCategorias.forEach(boton => boton.classList.remove("activo"));
         boton.classList.add("activo");
-
+        
 
         const categoriaSeleccionada = boton.textContent.toLowerCase();
         const destinosFiltrados = viajesEspaciales.filter(viaje => viaje.categoria.toLowerCase() === categoriaSeleccionada);
@@ -164,14 +191,10 @@ function mostrarDestinos(destinos){
                 }
 
                 misionesLanzadas.push(nuevaMision);
+                localStorage.setItem("misiones", JSON.stringify(misionesLanzadas));
 
-                contadorMisiones.innerHTML = `<tr>
-                                                <td>${nuevaMision.destino}</td>
-                                                <td>${nuevaMision.velocidad}</td>
-                                                <td>${nuevaMision.distancia}</td>
-                                                <td>${nuevaMision.duracion}</td>
-                                                <td><button><img src="./assets/trash-can.png"></button></td>
-                                                </tr>` +contadorMisiones.innerHTML;
+                mostrarMision(nuevaMision);
+
 
                 modalMision.innerHTML = `<div class="modal">
                             <img src="./assets/lanzamiento.gif" alt="lanzamiento ${nuevaMision.destino}" >
